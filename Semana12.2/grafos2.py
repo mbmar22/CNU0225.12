@@ -43,19 +43,30 @@ def contar_aristas(grafo): #aplicar un sort para ordenar cada par, de modo que s
             juntos = [add]
             lista.extend(juntos)
             # print(add)
-            contador += 1
+            #contador += 1
             # print(j)
 
-    print(lista) # Por algna razón, cuando imprimo la lista, los valores están separados en lugar de juntos. Averiguar por qué. Resuelto.
+    # print(lista) # Por algna razón, cuando imprimo la lista, los valores están separados en lugar de juntos. Averiguar por qué. Resuelto.
     lista.sort()
-    print(lista)
+    # print(lista)
+
+    lista_final = []
+
+    for i in lista:
+        for j in lista:
+            if i != j:
+                if i not in lista_final:
+                    lista_final.append(i)
+                    contador += 1
 
 
-    #print(lista)
+
+    #print(lista_final)
+
     return contador
 
 
 
 print("Vertices:", contar_vertices(grafo))
 print("Aristas:", contar_aristas(grafo))
-# Sería bueno ver si la cantidad de combinaciones global (o sea, que por ejemplo "AB" y "BA" sean diferentes) es lógicamente siempre la mitad. Por ejemplo, en este caso 14, pero si lo dividimos entre 2 nos da 7, la cantidad total de aristas.
+# Sería bueno ver si la cantidad de combinaciones global (o sea, que por ejemplo "AB" y "BA" sean diferentes) es lógicamente siempre la mitad. Por ejemplo, en este caso 14, pero si lo dividimos entre 2 nos da 7, la cantidad total de aristas. Ahora que lo reviso: Sí, en efecto, es la mitad.
