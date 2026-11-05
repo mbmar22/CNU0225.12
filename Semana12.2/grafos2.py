@@ -40,12 +40,13 @@ def contar_aristas(grafo): #aplicar un sort para ordenar cada par, de modo que s
             add = [i, j]
             add.sort()
             add = add[0] + add[1]
-            lista.extend(add)
-            print(add)
+            juntos = [add]
+            lista.extend(juntos)
+            # print(add)
             contador += 1
             # print(j)
 
-    print(lista) # Por algna razón, cuando imprimo la lista, los valores están separados en lugar de juntos. Averiguar por qué.
+    print(lista) # Por algna razón, cuando imprimo la lista, los valores están separados en lugar de juntos. Averiguar por qué. Resuelto.
     lista.sort()
     print(lista)
 
