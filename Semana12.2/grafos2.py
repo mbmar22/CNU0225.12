@@ -1,5 +1,5 @@
 # Construye la representación.
-print("A. Construye la representación.")
+print(("A. Construye la representación.").title())
 
 grafo = {
     "A": ["B", "C"], # A-B, A-C
@@ -10,11 +10,13 @@ grafo = {
     "F": ["D", "E"]
 }
 
+
 def mostrar_vecinos(grafo, vertice):
     if vertice not in grafo:
         return []
     return grafo[vertice]
 
+print("Vecinos de C: ", end="")
 print(mostrar_vecinos(grafo, "C"))
 
 '''Cada arista aparece por lo menos una vez porque tiene vecinos.'''
@@ -22,7 +24,7 @@ print(mostrar_vecinos(grafo, "C"))
 
 # Retos de programación
 # Reto 1 · Reconoce la estructura
-print("\nReto 1 · Reconoce la estructura")
+print(("\nReto 1 · Reconoce la estructura").title())
 def contar_vertices(grafo):
     contador = 0
     for i in grafo:
@@ -60,6 +62,19 @@ def contar_aristas(grafo): #aplicar un sort para ordenar cada par, de modo que s
                     contador += 1
 
 
+    '''
+    También se podría hacer así:
+
+    for i in lista:
+        if i not in lista_final:
+            lista.final.append(i)
+            contador += 1
+    
+    Realmente así es más sencillo
+            
+    '''
+
+
 
     #print(lista_final)
 
@@ -67,6 +82,36 @@ def contar_aristas(grafo): #aplicar un sort para ordenar cada par, de modo que s
 
 
 
-print("Vertices:", contar_vertices(grafo))
+print("Vértices:", contar_vertices(grafo))
 print("Aristas:", contar_aristas(grafo))
-# Sería bueno ver si la cantidad de combinaciones global (o sea, que por ejemplo "AB" y "BA" sean diferentes) es lógicamente siempre la mitad. Por ejemplo, en este caso 14, pero si lo dividimos entre 2 nos da 7, la cantidad total de aristas. Ahora que lo reviso: Sí, en efecto, es la mitad.
+# Sería bueno ver si la cantidad de combinaciones global (o sea, que por ejemplo "AB" y "BA" sean diferentes) es lógicamente siempre la mitad. Por ejemplo, en este caso 14, pero si lo dividimos entre 2 nos da 7, la cantidad total de aristas. Ahora que lo reviso: Sí, en efecto, es la mitad. Ahora que lo reviso 2: En el laboratorio sale en la pista que es dividirlo entre dos. Hipotésis correcta.
+
+
+
+# Reto 2 · Busca conexiones directas
+print(("\nReto 2 · Busca conexiones directas").title()) 
+def estan_conectados(grafo, origen, destino): # Todo está fácil hasta ahora, ojalá siga así
+    for i in grafo:
+        if i == origen:
+            for j in grafo[i]:
+                if j == destino:
+                    return True
+                else:
+                    return False
+
+    return("Sin conexión.")
+
+
+
+print(estan_conectados(grafo, "A", "B"))
+print(estan_conectados(grafo, "A", "F"))
+print(estan_conectados(grafo, "X", "A"))
+
+'''for i in grafo:
+    print(i)
+    contador = 1
+    print(grafo[i])
+    for j in grafo[i]:
+        print(f"{contador}. {j}")
+        contador+=1
+'''
